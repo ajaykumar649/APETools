@@ -16,3 +16,12 @@ http://home.fnal.gov/~ajay/log/log_08_05_2013
 APE twiki:
 
 https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideAlignmentPositionErrorEstimator
+
+Useful links:
+
+Milepede:
+
+http://www.desy.de/~blobel/mptalks.html
+
+HIP:
+https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideHIPAlgorithm
