@@ -83,7 +83,7 @@ process.MessageLogger.categories = ['Alignment']
 process.load("Configuration.StandardSequences.MagneticField_cff")
 process.load("Configuration.StandardSequences.Geometry_cff")
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
-process.GlobalTag.globaltag = 'DESIGN42_V12::All' # take your favourite
+process.GlobalTag.globaltag = 'DESIGN53_V9::All' # take your favourite
 
 
 

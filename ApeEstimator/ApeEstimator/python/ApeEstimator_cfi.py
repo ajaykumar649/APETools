@@ -93,7 +93,7 @@ ApeEstimatorTemplate = cms.EDAnalyzer('ApeEstimator',
     
     
     ## Tool 2: Switch on calculation of APE values
-    calculateApe = cms.bool(True),
+    calculateApe = cms.bool(False),
     
     #Define intervals in residual error for calculation of APE (one estimation per interval), (for APE calculation)
     residualErrorBinning = cms.vdouble(),

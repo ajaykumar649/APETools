@@ -27,7 +27,8 @@ echo
 
 
 ## Alignment
-export alignmentRcd="useStartGlobalTagForAllConditions"
+export alignmentRcd="misalTob20"
+#export alignmentRcd="useStartGlobalTagForAllConditions"
 #export alignmentRcd="design"
 #export alignmentRcd="idealAligned"
 echo "Alignment Record: $alignmentRcd"
@@ -48,26 +49,26 @@ export inputBase
 
 
 datasetName="qcd"
-inputBase="${cafDir}\/mc\/Summer12_v1\/${datasetName}\/apeSkim"
+inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
 nFiles=1
 bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 
 datasetName="wlnu"
-inputBase="${cafDir}\/mc\/Summer12_v1\/${datasetName}\/apeSkim"
-nFiles=8
+inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
+nFiles=11
 bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 
 #datasetName="zmumu10"
-#inputBase="${cafDir}\/mc\/Summer12_v1\/${datasetName}\/apeSkim"
+#inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
 #nFiles=1
 #bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 
 datasetName="zmumu20"
-inputBase="${cafDir}\/mc\/Summer12_v1\/${datasetName}\/apeSkim"
-nFiles=2
+inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
+nFiles=3
 bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 

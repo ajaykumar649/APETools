@@ -28,7 +28,8 @@ echo
 
 ## Alignment
 #export alignmentRcd="globalTag"
-export alignmentRcd="GR10_v6"
+export alignmentRcd="data_v9a_offline"
+#export alignmentRcd="GR10_v6"
 #export alignmentRcd="GR10_v6_plus5"
 #export alignmentRcd="GR10_v6_plus10"
 #export alignmentRcd="GR10_v6_plus15"
@@ -51,13 +52,13 @@ export inputBase
 
 
 datasetName="data1"
-inputBase="${cafDir}\/data\/SingleMu\/Run2012A-22Jan2013\/apeSkim"
-nFiles=6
+inputBase="${cafDir}\/data\/SingleMu\/Run2012A-22Jan2013_v5\/apeSkim"
+nFiles=7
 bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 
 datasetName="data2"
-inputBase="${cafDir}\/data\/SingleMu\/Run2012B-22Jan2013\/apeSkim"
+inputBase="${cafDir}\/data\/SingleMu\/Run2012B-22Jan2013_v5\/apeSkim"
 nFiles=32
 bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 

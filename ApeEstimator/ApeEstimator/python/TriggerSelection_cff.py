@@ -9,7 +9,9 @@ TriggerFilter = HLTrigger.HLTfilters.hltHighLevel_cfi.hltHighLevel.clone(
     TriggerResultsTag = cms.InputTag("TriggerResults","","HLT"),
     #HLTPaths = ['HLT_Mu9', 'HLT_Mu15_v*'],
     #HLTPaths = ['HLT_IsoMu17_v*'],
-     HLTPaths = ['HLT_IsoMu24_*'],
+    HLTPaths = ['HLT_IsoMu24_*'],
+    #HLTPaths = [''],
+
     throw = False,
 )
 

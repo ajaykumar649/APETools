@@ -47,14 +47,14 @@ export inputBase
 
 
 datasetName="qcd"
-inputBase="${cafDir}\/mc\/Summer12_v1\/${datasetName}\/apeSkim"
+inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
 nFiles=1
 bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 
 datasetName="wlnu"
-inputBase="${cafDir}\/mc\/Summer12_v1\/${datasetName}\/apeSkim"
-nFiles=8
+inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
+nFiles=11
 bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 
@@ -65,8 +65,8 @@ bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmen
 
 
 datasetName="zmumu20"
-inputBase="${cafDir}\/mc\/Summer12_v1\/${datasetName}\/apeSkim"
-nFiles=2
+inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
+nFiles=3
 bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 

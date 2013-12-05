@@ -180,20 +180,46 @@ elif isZmumu20:
   elif options.fileNumber==20: process.maxEvents.input =  9489 # 696231 events
   elif options.fileNumber==21: process.maxEvents.input =  9489 # 372419 events
 elif isData1:
-  if options.fileNumber==1: process.maxEvents.input = 1   # 894724 events
-  elif options.fileNumber==2: process.maxEvents.input = 1 # 895421 events
-  elif options.fileNumber==3: process.maxEvents.input = 1 # 207016 events
+  if options.fileNumber==1: process.maxEvents.input =  62992 #894724 events
+  elif options.fileNumber==2: process.maxEvents.input = 62992 #895421 events
+  elif options.fileNumber==3: process.maxEvents.input = 62992#207016 events
+  elif options.fileNumber==4: process.maxEvents.input = 62992#207016 events
+  elif options.fileNumber==5: process.maxEvents.input = 62992#207016 events
+  elif options.fileNumber==6: process.maxEvents.input = 62992#207016 events
+  elif options.fileNumber==7: process.maxEvents.input = 62992 #207016 events
 elif isData2:
-  if options.fileNumber==1: process.maxEvents.input =    254095 # 1101299 events
-  elif options.fileNumber==2: process.maxEvents.input =  254095 # 947505 events
-  elif options.fileNumber==3: process.maxEvents.input =  254095 # 1087702 events
-  elif options.fileNumber==4: process.maxEvents.input =  254095 # 919027 events
-  elif options.fileNumber==5: process.maxEvents.input =  254095 # 1064381 events
-  elif options.fileNumber==6: process.maxEvents.input =  254095 # 896920 events
-  elif options.fileNumber==7: process.maxEvents.input =  254094 # 952183 events
-  elif options.fileNumber==8: process.maxEvents.input =  254094 # 986213 events
-  elif options.fileNumber==9: process.maxEvents.input =  254094 # 893426 events
-  elif options.fileNumber==10: process.maxEvents.input = 254094 # 542679 events
+  if options.fileNumber==1: process.maxEvents.input =    48720#254095 # 1101299 events
+  elif options.fileNumber==2: process.maxEvents.input =  48720#254095 # 947505 events
+  elif options.fileNumber==3: process.maxEvents.input =  48720#254095 # 1087702 events
+  elif options.fileNumber==4: process.maxEvents.input =  48720#254095 # 919027 events
+  elif options.fileNumber==5: process.maxEvents.input =  48720#254095 # 1064381 events
+  elif options.fileNumber==6: process.maxEvents.input =  48720#254095 # 896920 events
+  elif options.fileNumber==7: process.maxEvents.input =  48720#254094 # 952183 events
+  elif options.fileNumber==8: process.maxEvents.input =  48720#254094 # 986213 events
+  elif options.fileNumber==9: process.maxEvents.input =  48720#254094 # 893426 events
+  elif options.fileNumber==10: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==11: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==12: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==13: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==14: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==15: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==16: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==17: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==18: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==19: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==20: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==21: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==22: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==23: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==24: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==25: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==26: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==27: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==28: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==29: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==30: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==31: process.maxEvents.input = 48720#254094 # 542679 events
+  elif options.fileNumber==32: process.maxEvents.input = 48720#254094 # 542679 events
 
 
 ##
@@ -233,22 +259,25 @@ process.FittingSmootherRKP5.LogPixelProbabilityCut = -14.
 #process.HighPuritySelector.src = 'generalTracks'
 process.HighPuritySelector.src = 'MuSkim'
 
-
-
 ##
 ## New pixel templates
+#if isData:
+#    process.GlobalTag.toGet = cms.VPSet(
+#    cms.PSet(
+#    record = cms.string("SiPixelTemplateDBObjectRcd"),
+#    tag = cms.string("SiPixelTemplateDBObject_38T_v4_offline"),
+#    connect = cms.untracked.string("frontier://FrontierArc/CMS_COND_PIXEL_DA14"),
+#    )
+#)
+#else:
 ##
 process.GlobalTag.toGet = cms.VPSet(
-    cms.PSet(
-        record = cms.string("SiPixelTemplateDBObjectRcd"),
-        tag = cms.string("SiPixelTemplateDBObject_38T_v3_mc"),
-        connect = cms.untracked.string("frontier://FrontierProd/CMS_COND_31X_PIXEL"),
-    )
+   cms.PSet(
+    record = cms.string("SiPixelTemplateDBObjectRcd"),
+    tag = cms.string("SiPixelTemplateDBObject_38T_v3_mc"),
+    connect = cms.untracked.string("frontier://FrontierProd/CMS_COND_31X_PIXEL"),
+   )
 )
-
-
-
-##
 ## Alignment and APE
 ##
 import CalibTracker.Configuration.Common.PoolDBESSource_cfi
@@ -266,7 +295,7 @@ if options.alignRcd=='design':
   process.es_prefer_trackerAlignment = cms.ESPrefer("PoolDBESSource","myTrackerAlignment")
 elif options.alignRcd == 'misalTob20':
   process.myTrackerAlignment = CalibTracker.Configuration.Common.PoolDBESSource_cfi.poolDBESSource.clone(
-    connect = 'sqlite_file:/afs/cern.ch/user/h/hauk/scratch0/apeStudies/misalignments/AlignmentsTob20.db',
+    connect = 'sqlite_file:/afs/cern.ch/work/a/ajkumar/APE_538_patch1_git/CMSSW_5_3_8_patch1/src/ApeEstimator/ApeEstimator/test/Misalignments/AlignmentsTob20.db',
     toGet = cms.VPSet(
       cms.PSet(
         record = cms.string('TrackerAlignmentRcd'),
@@ -286,6 +315,29 @@ elif options.alignRcd == 'idealAligned':
     )
   )
   process.es_prefer_trackerAlignment = cms.ESPrefer("PoolDBESSource","myTrackerAlignment")
+elif options.alignRcd == 'data_v9a_offline':
+  # Recent geometry of data
+  process.myTrackerAlignment = CalibTracker.Configuration.Common.PoolDBESSource_cfi.poolDBESSource.clone(
+    connect = 'frontier://FrontierArc/CMS_COND_31X_ALIGNMENT_DA14',
+    toGet = [
+      cms.PSet(
+        record = cms.string('TrackerAlignmentRcd'),
+        tag = cms.string('TrackerAlignment_v9a_offline'),
+      ),
+    ],
+  )
+  process.es_prefer_trackerAlignment = cms.ESPrefer("PoolDBESSource","myTrackerAlignment")
+  # Kinks and bows
+  process.myTrackerAlignmentKinksAndBows = CalibTracker.Configuration.Common.PoolDBESSource_cfi.poolDBESSource.clone(
+    connect = 'frontier://FrontierArc/CMS_COND_310X_ALIGN_DA14',
+    toGet = [
+      cms.PSet(
+        record = cms.string('TrackerSurfaceDeformationRcd'),
+        tag = cms.string('TrackerSurfaceDeformations_v3_offline'),
+      ),
+    ],
+  )
+  process.es_prefer_trackerAlignmentKinksAndBows = cms.ESPrefer("PoolDBESSource","myTrackerAlignmentKinksAndBows")
 elif options.alignRcd == 'GR10_v6':
   # Recent geometry
   process.myTrackerAlignment = CalibTracker.Configuration.Common.PoolDBESSource_cfi.poolDBESSource.clone(

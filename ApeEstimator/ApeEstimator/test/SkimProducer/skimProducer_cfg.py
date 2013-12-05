@@ -142,7 +142,7 @@ if options.isTest: process.maxEvents.input = 1001
 ##
 ## Trigger Selection
 ##
-process.load("ApeEstimator.ApeEstimator.TriggerSelection_cff")
+#process.load("ApeEstimator.ApeEstimator.TriggerSelection_cff")
 #if isData:
 #    process.TriggerFilter.TriggerResultsTag = cms.InputTag("TriggerResults","","HLT")
 #if isMc:
@@ -175,7 +175,7 @@ process.MuSkim = ApeEstimator.ApeEstimator.AlignmentTrackSelector_cff.MuSkimSele
 ##
 if options.useTrackList:
     process.MuSkim.src = 'TrackList'
-    process.TriggerSelectionSequence *= process.TrackList
+    #process.TriggerSelectionSequence *= process.TrackList
 
 
 
@@ -183,7 +183,7 @@ if options.useTrackList:
 ## Path
 ##
 process.path = cms.Path(
-    process.TriggerSelectionSequence*
+    #process.TriggerSelectionSequence*
     process.MuSkim
 )
 
