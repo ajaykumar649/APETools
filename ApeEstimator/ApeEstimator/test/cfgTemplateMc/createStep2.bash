@@ -64,8 +64,8 @@ else
   if [ -d "${fileDir}" ] ; then
     mv ${fileDir} ${ROOTFILEBASE}/workingArea/iter${iterationNumber}_old
   fi
-  if [ -a /afs/cern.ch/user/h/ajkumar/scratch0/apeStudies/apeObjects/apeIter${iterationNumber}.db ] ; then
-    mv /afs/cern.ch/user/h/ajkumar/scratch0/apeStudies/apeObjects/apeIter${iterationNumber}.db /afs/cern.ch/user/h/ajkumar/scratch0/apeStudies/apeObjects/apeIter${iterationNumber}_old.db
+  if [ -a /afs/cern.ch/user/h/hauk/scratch0/apeStudies/apeObjects/apeIter${iterationNumber}.db ] ; then
+    mv /afs/cern.ch/user/h/hauk/scratch0/apeStudies/apeObjects/apeIter${iterationNumber}.db /afs/cern.ch/user/h/hauk/scratch0/apeStudies/apeObjects/apeIter${iterationNumber}_old.db
   fi
   mkdir ${fileDir}
   

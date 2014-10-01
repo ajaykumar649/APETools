@@ -80,6 +80,7 @@ class TrackerTreeGenerator : public edm::EDAnalyzer {
       
       const bool createEntryForDoubleSidedModule_;
       std::vector<TrackerTreeVariables> vTkTreeVar_;
+      edm::ParameterSet theParameterSet;
 };
 
 //
@@ -94,7 +95,8 @@ class TrackerTreeGenerator : public edm::EDAnalyzer {
 // constructors and destructor
 //
 TrackerTreeGenerator::TrackerTreeGenerator(const edm::ParameterSet& iConfig):
-createEntryForDoubleSidedModule_(iConfig.getParameter<bool>("createEntryForDoubleSidedModule"))
+createEntryForDoubleSidedModule_(iConfig.getParameter<bool>("createEntryForDoubleSidedModule")),
+theParameterSet( iConfig )
 {
 }
 
@@ -118,8 +120,10 @@ TrackerTreeGenerator::analyze(const edm::Event& iEvent, const edm::EventSetup& i
    edm::ESHandle<GeometricDet> geometricDet;
    iSetup.get<IdealGeometryRecord>().get(geometricDet);
    TrackerGeomBuilderFromGeometricDet trackerBuilder;
-   tkGeom = trackerBuilder.build(&(*geometricDet));
-   
+   //tkGeom = trackerBuilder.build(&(*geometricDet));
+   tkGeom = trackerBuilder.build(&*geometricDet, theParameterSet);
+ //   TrackerGeometry* build(const GeometricDet* gd, const edm::ParameterSet& pSet );
+ 
    const TrackerGeometry *bareTkGeomPtr = &(*tkGeom);
    
    edm::LogInfo("TrackerTreeGenerator") //<< "@SUB=analyze"

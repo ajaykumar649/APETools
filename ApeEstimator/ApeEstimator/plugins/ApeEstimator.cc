@@ -593,8 +593,8 @@ ApeEstimator::bookSectorHistsForAnalyzerMode(){
     if((*i_sector).second.v_rawId.size()==0){
       // Needed for automisation: Directory secDir is only created, if at least one histo (or other object) is booked within
       // Now obsolete, since new histo "Name" is booked in every case!?
-      TH1F* noModule(0);
-      noModule = secDir.make<TH1F>("NoModuleInSector","",1,0,1);
+      //TH1F* noModule(0);
+      //noModule = secDir.make<TH1F>("NoModuleInSector","",1,0,1);
       continue;
     }
     // Set parameters for correlationHists
@@ -796,8 +796,8 @@ ApeEstimator::bookSectorHistsForApeCalculation(){
     if((*i_sector).second.v_rawId.size()==0){
       // Needed for automisation: Directory secDir is only created, if at least one histo (or other object) is booked within
       // Now obsolete, since new histo "Name" is booked in every case!?
-      TH1F* noModule(0);
-      noModule = secDir.make<TH1F>("NoModuleInSector","",1,0,1);
+      //TH1F* noModule(0);
+      //noModule = secDir.make<TH1F>("NoModuleInSector","",1,0,1);
       continue;
     }
     
@@ -1334,7 +1334,7 @@ ApeEstimator::fillHitVariables(const TrajectoryMeasurement& i_meas, const edm::E
     const Bounds& bounds = stripDet->specificSurface().bounds();
     float maxLength = std::sqrt(std::pow(bounds.length(),2)+std::pow(bounds.width(),2));
     float thickness = bounds.thickness();
-    LocalVector drift = driftDirection * thickness;
+    //LocalVector drift = driftDirection * thickness;
     
     
     

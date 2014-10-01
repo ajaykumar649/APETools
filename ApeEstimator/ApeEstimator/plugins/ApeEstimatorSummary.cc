@@ -528,13 +528,13 @@ ApeEstimatorSummary::calculateApe(){
        TF1 funcX_1("mygausX", "gaus", xMin, xMax);
        funcX_1.SetParameters(maximumX, meanX, rmsX);
        TString fitOpt("ILERQ"); //TString fitOpt("IMR"); ("IRLL"); ("IRQ");
-       Int_t fitResultX(0);
+       //Int_t fitResultX(0);
        if(integralX>minHitsPerInterval){
          if(mHists["norResX"]->Fit(&funcX_1, fitOpt)){
            edm::LogWarning("CalculateAPE")<<"Fit1 did not work: "<<mHists["norResX"]->Fit(&funcX_1, fitOpt);
            continue;
          }
-         fitResultX = mHists["norResX"]->Fit(&funcX_1, fitOpt);
+         //fitResultX = mHists["norResX"]->Fit(&funcX_1, fitOpt);
          //std::cout<<"FitResult1\t"<<fitResultX<<"\n";
        }
        Double_t meanX_1  = funcX_1.GetParameter(1);
@@ -546,14 +546,14 @@ ApeEstimatorSummary::calculateApe(){
        funcX_2.SetParameters(funcX_1.GetParameter(0),meanX_1,sigmaX_1);
        if(integralX>minHitsPerInterval){
          if(mHists["norResX"]->Fit(&funcX_2, fitOpt)){
-           edm::LogWarning("CalculateAPE")<<"Fit2 did not work: "<<mHists["norResX"]->Fit(&funcX_2, fitOpt);
+           edm::LogWarning("CalculateAPE")<<"Fit2 did not work for x : "<<mHists["norResX"]->Fit(&funcX_2, fitOpt);
 	   continue;
          }
-         fitResultX = mHists["norResX"]->Fit(&funcX_2, fitOpt);
+        // fitResultX = mHists["norResX"]->Fit(&funcX_2, fitOpt);
        }
        Double_t meanX_2  = funcX_2.GetParameter(1);
        Double_t sigmaX_2 = funcX_2.GetParameter(2);
-       //std::cout<<"\n\tTest "<<integralX<<" "<<meanX<<" "<<rmsX<<" "<<meanX_1<<" "<<sigmaX_1<<" "<<meanX_2<<" "<<sigmaX_2<<"\n";
+       std::cout<<"\n\tTest "<<integralX<<" "<<meanX<<" "<<rmsX<<" "<<meanX_1<<" "<<sigmaX_1<<" "<<meanX_2<<" "<<sigmaX_2<<"\n";
        
        
        // Now the same for y coordinate
@@ -582,13 +582,13 @@ ApeEstimatorSummary::calculateApe(){
 	 // First Gaus Fit
          TF1 funcY_1("mygausY", "gaus", yMin, yMax);
          funcY_1.SetParameters(maximumY, meanY, rmsY);
-         Int_t fitResultY(0);
+         //Int_t fitResultY(0);
          if(integralY>minHitsPerInterval){
            if(mHists["norResY"]->Fit(&funcY_1, fitOpt)){
              edm::LogWarning("CalculateAPE")<<"Fit1 did not work: "<<mHists["norResY"]->Fit(&funcY_1, fitOpt);
              continue;
            }
-           fitResultY = mHists["norResY"]->Fit(&funcY_1, fitOpt);
+           // fitResultY = mHists["norResY"]->Fit(&funcY_1, fitOpt);
          }
          meanY_1  = funcY_1.GetParameter(1);
 	 sigmaY_1 = funcY_1.GetParameter(2);
@@ -598,10 +598,10 @@ ApeEstimatorSummary::calculateApe(){
          funcY_2.SetParameters(funcY_1.GetParameter(0),meanY_1,sigmaY_1);
          if(integralY>minHitsPerInterval){
            if(mHists["norResY"]->Fit(&funcY_2, fitOpt)){
-             edm::LogWarning("CalculateAPE")<<"Fit2 did not work: "<<mHists["norResY"]->Fit(&funcY_2, fitOpt);
+             edm::LogWarning("CalculateAPE")<<"Fit2 did not work for y : "<<mHists["norResY"]->Fit(&funcY_2, fitOpt);
 	     continue;
            }
-           fitResultY = mHists["norResY"]->Fit(&funcY_2, fitOpt);
+           // fitResultY = mHists["norResY"]->Fit(&funcY_2, fitOpt);
          }
          meanY_2  = funcY_2.GetParameter(1);
          sigmaY_2 = funcY_2.GetParameter(2);

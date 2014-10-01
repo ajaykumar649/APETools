@@ -60,7 +60,9 @@ process.load("Configuration.Geometry.GeometryIdeal_cff")
 # --- this is now improved, it is always taken from ideal geometry independent of the GlobalTag
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
 #process.GlobalTag.globaltag = 'DESIGN42_V11::All'
-process.GlobalTag.globaltag = 'DESIGN53_V9::All'
+#process.GlobalTag.globaltag = 'DESIGN53_V9::All'
+process.GlobalTag.globaltag = 'DESIGN72_V1::All'
+
 
 
 
