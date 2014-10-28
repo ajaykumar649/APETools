@@ -52,7 +52,7 @@ process.MessageLogger.categories.append('ResidualErrorBinning')
 process.MessageLogger.categories.append('HitSelector')
 process.MessageLogger.categories.append('CalculateAPE')
 process.MessageLogger.categories.append('ApeEstimator')
-#process.MessageLogger.categories.append('TrackRefitter')
+process.MessageLogger.categories.append('TrackRefitter')
 process.MessageLogger.categories.append('AlignmentTrackSelector')
 process.MessageLogger.cerr.INFO.limit = 0
 process.MessageLogger.cerr.default.limit = -1
@@ -236,17 +236,20 @@ process.source.duplicateCheckMode = cms.untracked.string("checkEachRealDataFile"
 ## Whole Refitter Sequence
 ##
 process.load("ApeEstimator.ApeEstimator.TrackRefitter_38T_cff")
+
 if isParticleGun:
     process.GlobalTag.globaltag = 'DESIGN42_V12::All'
 elif isMc:
     #process.GlobalTag.globaltag = 'DESIGN42_V12::All'
     #process.GlobalTag.globaltag = 'START42_V12::All'
     #process.GlobalTag.globaltag = 'MC_42_V12::All'
-    process.GlobalTag.globaltag = 'DESIGN53_V9::All'
+    #process.GlobalTag.globaltag = 'DESIGN53_V9::All'
+    process.GlobalTag.globaltag = 'DESIGN72_V1::All'
 
     if options.alignRcd=='useStartGlobalTagForAllConditions':
         #process.GlobalTag.globaltag = 'START42_V12::All'
-        process.GlobalTag.globaltag = 'DESIGN53_V9::All'
+        #process.GlobalTag.globaltag = 'DESIGN53_V9::All'
+	process.GlobalTag.globaltag = 'DESIGN72_V1::All'
 elif isData:
     #process.GlobalTag.globaltag = 'GR_R_42_V21::All'
     process.GlobalTag.globaltag = 'FT_R_53_V18::All'
@@ -258,6 +261,7 @@ process.FittingSmootherRKP5.RejectTracks = True
 process.FittingSmootherRKP5.LogPixelProbabilityCut = -14.
 #process.HighPuritySelector.src = 'generalTracks'
 process.HighPuritySelector.src = 'MuSkim'
+
 
 ##
 ## New pixel templates
@@ -492,6 +496,11 @@ if isParticleGun:
     process.load("ApeEstimator.ApeEstimator.BeamspotForParticleGun_cff")
 
 
+##
+## Trigger Selection
+##
+process.load("ApeEstimator.ApeEstimator.TriggerSelection_cff")
+
 
 ##
 ## ApeEstimator
@@ -530,7 +539,7 @@ process.TFileService = cms.Service("TFileService",
 ## Path
 ##
 process.p = cms.Path(
-    #process.TriggerSelectionSequence*
+    process.TriggerSelectionSequence*
     process.RefitterHighPuritySequence*
     process.ApeEstimatorSequence
 )

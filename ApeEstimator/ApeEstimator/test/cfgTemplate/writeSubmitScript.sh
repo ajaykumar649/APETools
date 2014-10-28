@@ -7,7 +7,7 @@ isMc=false
 isParticleGun=false
 if [[ "$datasetName" == data1 ]] ||  [[ "$datasetName" == data2 ]]; then
   isData=true;
-elif [[ "$datasetName" == qcd ]] || [[ "$datasetName" == wlnu ]] || [[ "$datasetName" == zmumu ]] || [[ "$datasetName" == ztautau ]]  || [[ "$datasetName" == zmumu10 ]] || [[ "$datasetName" == zmumu20 ]]; then
+elif [[ "$datasetName" == qcd ]] || [[ "$datasetName" == wlnu ]] || [[ "$datasetName" == zmumu ]] || [[ "$datasetName" == ztautau ]]  || [[ "$datasetName" == zmumu10 ]] || [[ "$datasetName" == zmumu20 ]] || [[ "$datasetName" == zmumu50 ]]; then
   isMc=true;
 elif [[ "$datasetName" == ParticleGunMuon ]] || [[ "$datasetName" == ParticleGunPion ]] || [[ "$datasetName" == ParticleGunAntiMuon ]] || [[ "$datasetName" == ParticleGunAntiPion ]] ; then
   isParticleGun=true;

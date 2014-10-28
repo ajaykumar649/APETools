@@ -147,7 +147,8 @@ if isMc:
     #process.GlobalTag.globaltag = 'DESIGN42_V11::All'
     #process.GlobalTag.globaltag = 'START42_V12::All'
     #process.GlobalTag.globaltag = 'MC_42_V12::All'
-    process.GlobalTag.globaltag = 'DESIGN53_V9::All'
+    #process.GlobalTag.globaltag = 'DESIGN53_V9::All'
+    process.GlobalTag.globaltag = 'DESIGN72_V1::All'
 
 if isData:
     #process.GlobalTag.globaltag = 'GR_R_42_V21::All'
@@ -333,7 +334,7 @@ process.TFileService = cms.Service("TFileService",
 ## Path
 ##
 process.p = cms.Path(
-    #process.TriggerSelectionSequence*
+    process.TriggerSelectionSequence*
     process.RefitterHighPuritySequence*
     (process.ApeEstimator1+
      process.ApeEstimator2+

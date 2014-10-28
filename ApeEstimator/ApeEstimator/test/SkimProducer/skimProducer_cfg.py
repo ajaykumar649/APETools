@@ -62,7 +62,7 @@ process.options = cms.untracked.PSet(
 
 isData1 = isData2 = isData3 = isData4 = False
 isData = False
-isQcd = isWlnu = isZmumu = isZtautau = isZmumu10 = isZmumu20 = False
+isQcd = isWlnu = isZmumu = isZtautau = isZmumu10 = isZmumu20 =  isZmumu50 = False
 isMc = False
 if options.sample == 'data1':
     isData1 = True
@@ -94,6 +94,10 @@ elif options.sample == 'zmumu10':
 elif options.sample == 'zmumu20':
     isZmumu20 = True
     isMc = True
+elif options.sample == 'zmumu50':
+    isZmumu50 = True
+    isMc = True
+
 else:
     print 'ERROR --- incorrect data sammple: ', options.sample
     exit(8888)
@@ -117,6 +121,7 @@ if isQcd: process.load("ApeEstimator.ApeEstimator.samples.Mc_TkAlMuonIsolated_Su
 if isWlnu: process.load("ApeEstimator.ApeEstimator.samples.Mc_TkAlMuonIsolated_Summer12_wlnu_cff")
 if isZmumu10: process.load("ApeEstimator.ApeEstimator.samples.Mc_TkAlMuonIsolated_Summer12_zmumu10_cff")
 if isZmumu20: process.load("ApeEstimator.ApeEstimator.samples.Mc_TkAlMuonIsolated_Summer12_zmumu20_cff")
+if isZmumu50: process.load("ApeEstimator.ApeEstimator.samples.DYToMuMu_M-50_Tune4C_13TeV-pythia8_Spring14dr-TkAlMuonIsolated-castor_PU_S14_POSTLS170_V6-v1_ALCARECO_cff")
 
 
 
@@ -175,7 +180,7 @@ process.MuSkim = ApeEstimator.ApeEstimator.AlignmentTrackSelector_cff.MuSkimSele
 ##
 if options.useTrackList:
     process.MuSkim.src = 'TrackList'
-    #process.TriggerSelectionSequence *= process.TrackList
+    process.TriggerSelectionSequence *= process.TrackList
 
 
 

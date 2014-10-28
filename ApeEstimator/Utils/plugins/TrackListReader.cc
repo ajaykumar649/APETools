@@ -82,7 +82,7 @@ class TrackListReader : public edm::EDProducer {
       typedef std::map<unsigned int, std::map<unsigned int, std::vector<TrackParams> > > RunEventTrackParams;
       RunEventTrackParams m_runEventTrackParams_;
       
-      //unsigned int counter1;
+      unsigned int counter1;
 };
 
 //
@@ -101,7 +101,7 @@ TrackListReader::TrackListReader(const edm::ParameterSet& iConfig):
 parameterSet_(iConfig)
 {
   produces<reco::TrackCollection>();
-  //counter1 = 0;
+  counter1 = 0;
 }
 
 
@@ -149,7 +149,7 @@ TrackListReader::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
       if(deltaR>maxTrackDeltaR)continue;
       if(deltaPt>maxTrackDeltaPt)continue;
       isMatched = true;
-      //++counter1;
+      ++counter1;
       break;
     }
     
@@ -234,7 +234,7 @@ TrackListReader::beginJob(){
 // ------------ method called once each job just after ending the event loop  ------------
 void 
 TrackListReader::endJob() {
-  //std::cout<<"\n\tNumber of matched tracks: "<<counter1<<"\n";
+  std::cout<<"\n\tNumber of matched tracks: "<<counter1<<"\n";
 }
 
 // ------------ method called when starting to processes a run  ------------

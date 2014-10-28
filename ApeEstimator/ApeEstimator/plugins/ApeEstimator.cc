@@ -1089,12 +1089,17 @@ ApeEstimator::fillHitVariables(const TrajectoryMeasurement& i_meas, const edm::E
   const LocalPoint& lPTrk = tsos.localPosition();
   
   // use APE also for the hit error, while APE is automatically included in tsos error
-  const AlgebraicROOTObject<2>::SymMatrix& mat = asSMatrix<2>(hit.parametersError());
-  const LocalError& errHitApe = LocalError( mat(0,0),mat(0,1),mat(1,1) );
+  //
+  //  no need to add  APE to hitError anymore by Ajay 27 Oct 2014
+  
+  ////const AlgebraicROOTObject<2>::SymMatrix& mat = asSMatrix<2>(hit.parametersError());
+  ////const LocalError& errHitApe = LocalError( mat(0,0),mat(0,1),mat(1,1) );
   const LocalError& errHitWoApe = hit.localPositionError();
   const LocalError& errTrk = tsos.localError().positionError();
   
-  const StatePositionAndError2 positionAndError2Hit = this->positionAndError2(lPHit, errHitApe, hit);
+  //const StatePositionAndError2 positionAndError2Hit = this->positionAndError2(lPHit, errHitApe, hit);
+  const StatePositionAndError2 positionAndError2Hit = this->positionAndError2(lPHit, errHitWoApe, hit);
+
   const StatePositionAndError2 positionAndError2HitWoApe = this->positionAndError2(lPHit, errHitWoApe, hit);
   const StatePositionAndError2 positionAndError2Trk = this->positionAndError2(lPTrk, errTrk, hit);
   

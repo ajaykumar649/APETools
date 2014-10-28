@@ -7,7 +7,7 @@ for file in $CMSSW_BASE/src/ApeEstimator/ApeEstimator/test/batch/workingArea/*.t
 
 do
 
-  bsub -J job${counter} -q cmscaf1nd -R "rusage[pool=3000]" "type=SLC5_64" tcsh $file
+  bsub -J job${counter} -q cmscaf1nd -R "rusage[pool=3000]" "type=SLC6_64" tcsh $file
   
   counter=$counter+1
   

@@ -42,7 +42,8 @@ MinBiasSkimSelector = Alignment.CommonAlignmentProducer.AlignmentTrackSelector_c
 MuSkimSelector = Alignment.CommonAlignmentProducer.AlignmentTrackSelector_cfi.AlignmentTrackSelector.clone(
     applyBasicCuts = True,
     filter = True,
-    src = 'ALCARECOTkAlMuonIsolated',
+    #src = 'ALCARECOTkAlMuonIsolated',
+    src = 'TrackRefitter',
     ptMin = 17.,
     pMin = 17.,
     etaMin = -2.5,
@@ -56,6 +57,15 @@ MuSkimSelector = Alignment.CommonAlignmentProducer.AlignmentTrackSelector_cfi.Al
 )
 
 
+#MuSkimSelector = Alignment.CommonAlignmentProducer.AlignmentTrackSelector_cfi.AlignmentTrackSelector.clone(
+#    #filter = True, ##do not store empty events
+#    applyBasicCuts = True,
+#    src = 'ALCARECOTkAlMuonIsolated',
+#    ptMin = 2.0, ##GeV 
+#    etaMin = -3.5,
+#    etaMax = 3.5,
+#    nHitMin = 1,
+#)
 
 
 

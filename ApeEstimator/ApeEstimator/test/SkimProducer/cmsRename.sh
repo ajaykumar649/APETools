@@ -17,6 +17,7 @@ elif [[ "$sample" == qcd ]] ; then directory="/store/caf/user/ajkumar/mc/Summer1
 elif [[ "$sample" == wlnu ]] ; then directory="/store/caf/user/ajkumar/mc/Summer12_v5/wlnu/"
 elif [[ "$sample" == zmumu10 ]] ; then directory="/store/caf/user/ajkumar/mc/Summer12_v5/zmumu10/"
 elif [[ "$sample" == zmumu20 ]] ; then directory="/store/caf/user/ajkumar/mc/Summer12_v5/zmumu20/"
+elif [[ "$sample" == zmumu50 ]] ; then directory="/store/caf/user/ajkumar/ApeSkim71/zmumu50/"
 else
   echo "Invalid dataset: $sample"
   exit 2

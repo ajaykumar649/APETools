@@ -46,16 +46,16 @@ cafDir="\/store\/caf\/user\/ajkumar"
 export inputBase
 
 
-datasetName="qcd"
-inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
-nFiles=1
-bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
+#datasetName="qcd"
+#inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
+#nFiles=1
+#bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 
-datasetName="wlnu"
-inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
-nFiles=11
-bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
+#datasetName="wlnu"
+#inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
+#nFiles=11
+#bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 
 #datasetName="zmumu10"
@@ -64,9 +64,14 @@ bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmen
 #bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 
-datasetName="zmumu20"
-inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
-nFiles=3
+#datasetName="zmumu20"
+#inputBase="${cafDir}\/mc\/Summer12_v5\/${datasetName}\/apeSkim"
+#nFiles=3
+#bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
+
+datasetName="zmumu50"
+inputBase="${cafDir}\/ApeSkim71\/${datasetName}\/apeSkim"
+nFiles=2
 bash $createStep1 $datasetName $nFiles $iterationNumber $lastIteration $alignmentRcd $inputBase
 
 

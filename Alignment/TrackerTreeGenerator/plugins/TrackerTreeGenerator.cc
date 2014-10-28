@@ -56,6 +56,7 @@
 #include "Geometry/CommonDetUnit/interface/TrackingGeometry.h"
 #include "Geometry/CommonDetUnit/interface/GeomDet.h"
 #include "Geometry/CommonDetUnit/interface/GeomDetUnit.h"
+#include "Geometry/TrackerGeometryBuilder/interface/StripGeomDetUnit.h"
 #include "Geometry/CommonTopologies/interface/StripTopology.h"
 
 #include "Alignment/TrackerTreeGenerator/interface/TrackerTreeVariables.h"
@@ -287,11 +288,12 @@ TrackerTreeGenerator::analyze(const edm::Event& iEvent, const edm::EventSetup& i
      tkTreeVar.posZ         = gPModule.z();
      
      
-     if(dynamic_cast<const GeomDetUnit*>(&geomDet)){  //is it a single physical module?
-       const GeomDetUnit& geomDetUnit = dynamic_cast<const GeomDetUnit&>(geomDet);
+     if(dynamic_cast<const StripGeomDetUnit*>(&geomDet)){  //is it a single physical module?
+       const StripGeomDetUnit& StripgeomDetUnit = dynamic_cast<const StripGeomDetUnit&>(geomDet);
        if(tkTreeVar.subdetId==StripSubdetector::TIB || tkTreeVar.subdetId==StripSubdetector::TOB ||
           tkTreeVar.subdetId==StripSubdetector::TID || tkTreeVar.subdetId==StripSubdetector::TEC){
-         const StripTopology& topol = dynamic_cast<const StripTopology&>(geomDetUnit.topology());
+         //const StripTopology& topol = dynamic_cast<const StripTopology&>(StripgeomDetUnit.topology());
+         const StripTopology& topol = dynamic_cast<const StripTopology&>(StripgeomDetUnit.specificTopology());
          tkTreeVar.nStrips = topol.nstrips();
        }
      }

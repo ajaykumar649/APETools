@@ -31,6 +31,7 @@ ApeSkimEventContent = cms.PSet(
 	#'keep L1*_*_*_*',
         #'drop *_L1T1*_*_*',
 	'keep *_MuSkim_*_*',
+        'keep edmTriggerResults_*_*_*'
 	#'keep Si*ClusteredmNewDetSetVector_*_*_*',
 	
 	#'drop *_ALCARECOTkAlMuonIsolated_*_*',
