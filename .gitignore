@@ -6,4 +6,6 @@
 *.pdf
 *.root
 *.png
+*.swp
+*.history
 *~
