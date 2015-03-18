@@ -13,10 +13,10 @@ import sys
 options = VarParsing.VarParsing ('standard')
 options.register('sample', 'data1', VarParsing.VarParsing.multiplicity.singleton, VarParsing.VarParsing.varType.string, "Input sample")
 options.register('fileNumber', 1, VarParsing.VarParsing.multiplicity.singleton, VarParsing.VarParsing.varType.int, "Input file number")
-options.register('iterNumber', 0, VarParsing.VarParsing.multiplicity.singleton, VarParsing.VarParsing.varType.int, "Iteration number")
+options.register('iterNumber', 1, VarParsing.VarParsing.multiplicity.singleton, VarParsing.VarParsing.varType.int, "Iteration number")
 options.register('lastIter', False, VarParsing.VarParsing.multiplicity.singleton, VarParsing.VarParsing.varType.bool, "Last iteration")
-options.register('alignRcd','design', VarParsing.VarParsing.multiplicity.singleton, VarParsing.VarParsing.varType.string, "AlignmentRcd")
-#options.register('alignRcd','CSA14_50ns_scenario', VarParsing.VarParsing.multiplicity.singleton, VarParsing.VarParsing.varType.string, "AlignmentRcd")
+#options.register('alignRcd','design', VarParsing.VarParsing.multiplicity.singleton, VarParsing.VarParsing.varType.string, "AlignmentRcd")
+options.register('alignRcd','CSA14_50ns_scenario', VarParsing.VarParsing.multiplicity.singleton, VarParsing.VarParsing.varType.string, "AlignmentRcd")
 
 
 
@@ -96,7 +96,7 @@ process.source = cms.Source ("PoolSource",
                       fileNames=cms.untracked.vstring(
 			#'file:/afs/cern.ch/work/a/ajkumar/APE_newCPE/CMSSW_7_2_0_pre6/src/apeSkim_1_1_0X0.root'
 	#'file:/afs/cern.ch/work/a/ajkumar/APE_newCPE_v1/CMSSW_7_2_0_pre6/src/ApeEstimator/ApeEstimator/test/SkimProducer/apeSkim.root'
-                        'file:/afs/cern.ch/work/a/ajkumar/APE_newCPE_v1/CMSSW_7_2_0_pre6/src/ApeEstimator/ApeEstimator/test/cfgTemplate/testing/apeSkim1.root'
+    'file:/afs/cern.ch/work/a/ajkumar/APE_74X/CMSSW_7_2_0_pre6/src/ApeEstimator/ApeEstimator/test/cfgTemplate/testing/apeSkim39.root'
                         ),
        )
 process.source.duplicateCheckMode = cms.untracked.string("checkEachRealDataFile")
@@ -422,7 +422,8 @@ if options.iterNumber!=0:
       connect = 'sqlite_file:'+os.environ['CMSSW_BASE']+'/src/ApeEstimator/ApeEstimator/test/cfgTemplate/testing/iter'+str(options.iterNumber-1)+'/apeIter'+str(options.iterNumber-1)+'.db',
       toGet = [
         cms.PSet(
-          record = cms.string('TrackerAlignmentErrorRcd'),
+          #record = cms.string('TrackerAlignmentErrorRcd'),
+	  record = cms.string('TrackerAlignmentErrorExtendedRcd'),
           tag = cms.string('AlignmentErrors'),
         ),
       ],

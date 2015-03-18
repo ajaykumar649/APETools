@@ -58,14 +58,20 @@ process.load("RecoVertex.BeamSpotProducer.BeamSpot_cff")
 process.load("Configuration.StandardSequences.Services_cff")
 #process.load("Configuration.StandardSequences.Geometry_cff")
 #process.load("Configuration.Geometry.GeometryIdeal_cff")
-process.load("Configuration.Geometry.GeometryDB_cff")
+#process.load("Configuration.Geometry.GeometryDB_cff")
+process.load("Configuration.Geometry.GeometryRecoDB_cff")
 process.load("Configuration.StandardSequences.MagneticField_cff")
 process.load("CondCore.DBCommon.CondDBCommon_cfi")
-process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
+
+###process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
 
 #process.GlobalTag.globaltag = 'DESIGN72_V1::All'
-process.GlobalTag.globaltag = 'POSTLS170_V6::All'
+###process.GlobalTag.globaltag = 'POSTLS170_V6::All'
 
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+from Configuration.AlCa.GlobalTag import GlobalTag
+#process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:mc', '')
 ##
 ## Input Files
 
@@ -73,6 +79,7 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 process.source = cms.Source ("PoolSource",
                       fileNames=cms.untracked.vstring(
                         '/store/mc/Spring14dr/DYToMuMu_M-15To50_Tune4C_13TeV-pythia8/ALCARECO/TkAlMuonIsolated-castor_PU_S14_POSTLS170_V6-v1/00000/200D2801-7DF1-E311-A513-003048D439BE.root'
+
 #       '/store/mc/Spring14dr/DYToMuMu_M-15To50_Tune4C_13TeV-pythia8/ALCARECO/TkAlMuonIsolated-castor_PU_S14_POSTLS170_V6-v1/00000/200D2801-7DF1-E311-A513-003048D439BE.root',
 #       '/store/mc/Spring14dr/MinBias_TuneZ2star_13TeV_pythia6/ALCARECO/TkAlMinBias-castor_PU_S14_POSTLS170_V6-v1/00000/000908F2-FEEF-E311-9E61-E0CB4E29C502.root',
 #       '/store/mc/Spring14dr/MinBias_TuneZ2star_13TeV_pythia6/ALCARECO/TkAlMinBias-castor_PU_S14_POSTLS170_V6-v1/00000/000BD08F-91F5-E311-A0D5-E0CB4E5536F2.root',

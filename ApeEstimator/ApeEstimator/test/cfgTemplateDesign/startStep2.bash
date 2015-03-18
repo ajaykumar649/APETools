@@ -11,6 +11,4 @@ bash $base/summary.bash
 
 
 rm $base/*.bash
-rm $base/*.tcsh
-
 

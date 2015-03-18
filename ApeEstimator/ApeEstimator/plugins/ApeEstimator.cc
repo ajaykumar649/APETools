@@ -86,6 +86,8 @@
 //#include "CondFormats/AlignmentRecord/interface/GlobalPositionRcd.h"
 //#include "CondFormats/AlignmentRecord/interface/TrackerAlignmentRcd.h"
 //#include "CondFormats/AlignmentRecord/interface/TrackerAlignmentErrorRcd.h"
+#include "CondFormats/AlignmentRecord/interface/TrackerAlignmentErrorExtendedRcd.h"
+
 //...............
 //
 

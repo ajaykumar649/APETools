@@ -46,11 +46,22 @@ process = cms.Process("APE")
 # include "Configuration/StandardSequences/data/FakeConditions.cff"
 # initialize magnetic field
 #process.load("Configuration.StandardSequences.MagneticField_cff")
-process.load("Configuration.Geometry.GeometryIdeal_cff")
+#process.load("Configuration.Geometry.GeometryIdeal_cff")
 #process.load("Configuration.Geometry.GeometryDB_cff")
+#process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
+#process.GlobalTag.globaltag = 'POSTLS170_V6::All'
+#////////////////////////////////////////////////////////
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+from Configuration.AlCa.GlobalTag import GlobalTag
+#process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:mc', '')
 
+
+#///////////////////////////////////
 # ideal geometry and interface
-#process.load("Geometry.CMSCommonData.cmsIdealGeometryXML_cfi")
+process.load("Geometry.CMSCommonData.cmsIdealGeometryXML_cfi")
+process.load("Configuration.Geometry.GeometryDB_cff")
+
 #process.load("Geometry.TrackerNumberingBuilder.trackerNumberingGeometry_cfi")
 # for Muon: include "Geometry/MuonNumbering/data/muonNumberingInitialization.cfi"
 
@@ -65,6 +76,7 @@ process.AlignmentProducer.saveApeToDB = True
 process.AlignmentProducer.algoConfig.readApeFromASCII = True
 process.AlignmentProducer.algoConfig.setComposites = False
 process.AlignmentProducer.algoConfig.readLocalNotGlobal = True
+process.AlignmentProducer.algoConfig.readFullLocalMatrix = True
 # CAVEAT: Input file name has to start with a Package name...
 process.AlignmentProducer.algoConfig.apeASCIIReadFile = 'ApeEstimator/ApeEstimator/test/cfgTemplate/testing/iter'+str(options.iterNumber)+'/allData_apeOutput.txt'
 process.AlignmentProducer.algoConfig.saveApeToASCII = True 
@@ -117,10 +129,8 @@ process.PoolDBOutputService = cms.Service(
     timetype = cms.untracked.string('runnumber'),
     #connect = cms.string('sqlite_file:ape.db'),
     connect = cms.string('sqlite_file:'+os.environ['CMSSW_BASE']+'/src/ApeEstimator/ApeEstimator/test/cfgTemplate/testing/iter'+str(options.iterNumber)+'/apeIter'+str(options.iterNumber)+'.db'),
-
-    toPut = cms.VPSet(
-        cms.PSet(
-	    record = cms.string('TrackerAlignmentErrorRcd'),
+    #toPut = cms.VPSet(cms.PSet(record = cms.string('TrackerAlignmentErrorRcd'),
+    toPut = cms.VPSet(cms.PSet(record = cms.string('TrackerAlignmentErrorExtendedRcd'),
             tag = cms.string('AlignmentErrors')
         )
     )
